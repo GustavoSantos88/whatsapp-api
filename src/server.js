@@ -1,4 +1,3 @@
-const cors = require('cors')
 require('dotenv').config()
 require('./database/associations')
 require('./workers/webhookWorker')
@@ -34,20 +33,21 @@ app.use(express.json())
 //     allowedHeaders: ['Content-Type', 'X-API-KEY']
 // }))
 
-// USAR EM PRODUÇÃO
-const cors = require('cors');
+const cors = require('cors')
 
+// CORS global
 const corsOptions = {
     origin: ['http://localhost', 'http://127.0.0.1', 'http://whatsapp.techsystembrasil.com.br'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'X-API-KEY'],
     credentials: true
-};
+}
 
-app.use(cors(corsOptions));
+// aplicar CORS
+app.use(cors(corsOptions))
 
-// Permitir responder a todos preflight requests
-app.options('*', cors(corsOptions));
+// Permitir responder preflight OPTIONS antes de qualquer rota
+app.options('*', cors(corsOptions))
 
 app.use('/api/admin', adminRoutes)
 app.use('/api/user', userRoutes)
