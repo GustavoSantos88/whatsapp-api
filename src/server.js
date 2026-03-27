@@ -35,11 +35,17 @@ app.use(express.json())
 // }))
 
 // USAR EM PRODUÇÃO
-app.use(cors({
-    origin: ['http://127.0.0.1', 'http://whatsapp.techsystembrasil.com.br'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'X-API-KEY']
-}))
+const corsOptions = {
+    origin: ['http://localhost', 'http://127.0.0.1', 'http://whatsapp.techsystembrasil.com.br'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'X-API-KEY'],
+    credentials: true
+};
+
+app.use(cors(corsOptions));
+
+// Permitir responder a todos preflight requests
+app.options('*', cors(corsOptions));
 
 app.use('/api/admin', adminRoutes)
 app.use('/api/user', userRoutes)
