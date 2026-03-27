@@ -2,8 +2,15 @@ const User = require('../database/models/User')
 
 module.exports = async (req, res, next) => {
 
-    try {
+    // Ignorar autenticação para login e registro
+    if (
+        req.path === '/user/login' ||
+        req.path === '/user/users'
+    ) {
+        return next()
+    }
 
+    try {
         const apiKey = req.headers['x-api-key']
 
         if (!apiKey) {
@@ -38,4 +45,3 @@ module.exports = async (req, res, next) => {
         })
     }
 }
-
