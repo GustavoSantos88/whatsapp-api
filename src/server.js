@@ -35,6 +35,8 @@ app.use(express.json())
 // }))
 
 // USAR EM PRODUÇÃO
+const cors = require('cors');
+
 const corsOptions = {
     origin: ['http://localhost', 'http://127.0.0.1', 'http://whatsapp.techsystembrasil.com.br'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
