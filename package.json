@@ -1,0 +1,32 @@
+{
+  "name": "whatsapp-api",
+  "version": "1.0.0",
+  "description": "API WhatsApp não oficial com Baileys",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "axios": "^1.13.5",
+    "baileys": "^7.0.0-rc.9",
+    "bcrypt": "^6.0.0",
+    "bullmq": "^5.70.1",
+    "cls": "^0.1.5",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^8.2.1",
+    "ioredis": "^5.10.0",
+    "jsonwebtoken": "^9.0.3",
+    "mime-types": "^3.0.2",
+    "multer": "^2.1.1",
+    "mysql2": "^3.17.2",
+    "node-fetch": "^3.3.2",
+    "puppeteer": "^24.37.3",
+    "qrcode": "^1.5.4",
+    "qrcode-terminal": "^0.12.0",
+    "sequelize": "^6.37.7",
+    "socket.io": "^4.8.3",
+    "whatsapp-web.js": "^1.34.6"
+  }
+}
