@@ -11,6 +11,7 @@ module.exports = async (req, res, next) => {
     }
 
     try {
+
         const apiKey = req.headers['x-api-key']
 
         if (!apiKey) {
@@ -45,3 +46,4 @@ module.exports = async (req, res, next) => {
         })
     }
 }
+

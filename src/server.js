@@ -51,6 +51,7 @@ app.options('*', cors(corsOptions))
 
 app.use('/api/admin', adminRoutes)
 app.use('/api/user', userRoutes)
+
 app.use('/api', auth)
 app.use('/api', rateLimit)
 app.use('/api', connectRoutes)
