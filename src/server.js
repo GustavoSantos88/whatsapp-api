@@ -27,8 +27,16 @@ const app = express()
 
 app.use(express.json())
 
+// USAR LOCALMENTE PARA TESTE
+// app.use(cors({
+//     origin: ['http://127.0.0.1', 'http://localhost'],
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     allowedHeaders: ['Content-Type', 'X-API-KEY']
+// }))
+
+// USAR EM PRODUÇÃO
 app.use(cors({
-    origin: ['http://127.0.0.1', 'http://localhost'],
+    origin: ['http://127.0.0.1', 'http://whatsapp.techsystembrasil.com.br'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'X-API-KEY']
 }))
