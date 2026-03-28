@@ -37,7 +37,12 @@ const cors = require('cors')
 
 // CORS global
 const corsOptions = {
-    origin: ['http://localhost', 'http://127.0.0.1', 'http://whatsapp.techsystembrasil.com.br'],
+    origin: [
+        'http://localhost',
+        'http://127.0.0.1',
+        'http://whatsapp.techsystembrasil.com.br',
+        'https://whatsapp.techsystembrasil.com.br'
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'X-API-KEY'],
     credentials: true
