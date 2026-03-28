@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
         {
-            name: "whatsapp-api",
+            name: "whatsapp-apii",
             script: "./src/server.js",
             watch: false,
             env: {
