@@ -4,9 +4,7 @@ let browser = null
 const pages = {}
 
 async function getBrowser() {
-
     if (!browser) {
-
         browser = await puppeteer.launch({
             headless: true,
             args: [
@@ -17,11 +15,11 @@ async function getBrowser() {
                 '--no-first-run',
                 '--no-zygote',
                 '--disable-gpu'
-            ]
+            ],
+            executablePath: puppeteer.executablePath() // força usar o binário correto
         })
 
         console.log("🌐 Chromium Pool iniciado")
-
     }
 
     return browser
