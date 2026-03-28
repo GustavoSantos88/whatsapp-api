@@ -16,7 +16,7 @@ async function getBrowser() {
                 '--no-zygote',
                 '--disable-gpu'
             ],
-            executablePath: puppeteer.executablePath() // força usar o binário correto
+            executablePath: puppeteer.executablePath(), // ← força usar o binário correto
         })
 
         console.log("🌐 Chromium Pool iniciado")
