@@ -1,3 +1,6 @@
+// Coloque no topo do arquivo, antes de require('puppeteer')
+process.env.PUPPETEER_CACHE_DIR = '/var/www/api/.puppeteer-cache'
+
 const puppeteer = require('puppeteer')
 
 let browser = null
@@ -16,9 +19,8 @@ async function getBrowser() {
                 '--no-zygote',
                 '--disable-gpu'
             ],
-            executablePath: puppeteer.executablePath(), // ← força usar o binário correto
+            executablePath: puppeteer.executablePath(), // garante que use o Chromium baixado
         })
-
         console.log("🌐 Chromium Pool iniciado")
     }
 
@@ -26,20 +28,14 @@ async function getBrowser() {
 }
 
 async function getBrowserWSEndpoint() {
-
     const browser = await getBrowser()
-
     return browser.wsEndpoint()
 }
 
 async function createPage(sessionId) {
-
     const browser = await getBrowser()
-
     const page = await browser.newPage()
-
     pages[sessionId] = page
-
     return page
 }
 
@@ -48,13 +44,9 @@ function getPage(sessionId) {
 }
 
 async function closePage(sessionId) {
-
     if (!pages[sessionId]) return
-
     await pages[sessionId].close()
-
     delete pages[sessionId]
-
 }
 
 module.exports = {
